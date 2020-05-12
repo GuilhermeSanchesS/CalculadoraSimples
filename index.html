@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="https://cdn.icon-icons.com/icons2/413/PNG/64/Calculator_41154.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Kristi&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULADORA</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+        span{
+            position: relative;
+            margin-top: 40px;
+            font-size: 30px;
+            font-family: 'Kristi', cursive;
+            color: white;
+        }
+        
+        button{
+            width: 80px;
+            height: 80px;
+            font-size: 30px;
+            margin: 4px;
+            border-radius: 20px;
+            cursor: pointer;
+            background: linear-gradient(45deg, #2E2E2E, #212121);
+            border: none;
+            color: white;
+        }
+        .op{
+            background: linear-gradient(45deg, #37474F, #263238);
+            color: white;
+        }
+        input{
+            width: 340px;
+            height: 80px;
+            margin: 5px;
+            text-align: right;
+            font-size: 52px;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            color: rgba(62, 69, 81, 0.7);
+        }
+        .conteiner{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%)translateY(-50%);
+        }
+        html{
+            background: linear-gradient(to right,#fe1873, #fe583d);
+            height: 100%;
+        }
+        .leftpag{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="conteiner">
+        <form name="form">
+            <input class="numero" name="numero">
+        </form>
+        <table>
+            <tr>
+                <td><button class="op" onclick="clean()">C</button></td>
+                <td><button class="op" onclick="back()">DEL</button></td>
+                <td><button class="op" onclick="insert('/')">÷</button></td>
+                <td><button class="op" onclick="insert('*')">x</button></td>
+            </tr>
+            <tr>    
+                <td><button onclick="insert(7)">7</button></td>
+                <td><button onclick="insert(8)">8</button></td>
+                <td><button onclick="insert(9)">9</button></td>
+                <td><button class="op" onclick="insert('-')">-</button></td>
+            </tr>
+            <tr>   
+                <td><button onclick="insert(4)">4</button></td>
+                <td><button onclick="insert(5)">5</button></td>
+                <td><button onclick="insert(6)">6</button></td>
+                <td><button class="op" onclick="insert('+')">+</button></td>
+            </tr> 
+            <tr>
+                <td><button onclick="insert(1)">1</button></td>
+                <td><button onclick="insert(2)">2</button></td>
+                <td><button onclick="insert(3)">3</button></td>
+                <td rowspan="5"><button style="height: 170px; background: linear-gradient(45deg,#ffff00,#ff6f00);" 
+                    onclick="equal()">=</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button style="width: 170px;" onclick="insert(0)">0</button></td>
+                <td><button onclick="insert('.')">,</button></td>
+            </tr>
+        </table>
+
+        
+    </div>
+    
+    <div style="height: 50px; width: 300px; position: fixed; bottom: 60px; right: 32px;">
+        <span>Guilherme Sanches Simões</span></div>
+    <script>
+        function insert(num){
+            document.form.numero.value= document.form.numero.value+num;
+        }
+        function equal(){
+            var exp = document.form.numero.value;
+            if(exp){
+                document.form.numero.value=eval(exp)
+            }
+        }
+        function clean(){
+            document.form.numero.value="";
+        }
+        function back(){
+            var exp = document.form.numero.value;
+            document.form.numero.value=exp.substring(0,exp.length-1);
+        }
+    </script>
+</body>
+</html>
