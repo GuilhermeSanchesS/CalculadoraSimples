@@ -1,4 +1,5 @@
-# Calculadora Simples em Javascript 🔢
+# Calculadora Simples em Javascript 🔢 ➕➖✖➗
+
 <p align="center">
   <img alt="Calculadora" src="Calculadora-.gif">
 </p>
